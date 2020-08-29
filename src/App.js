@@ -1,26 +1,32 @@
-import React, {useEffect} from 'react';
+import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'jquery'; import 'popper.js'; import 'bootstrap';
 import Navbar from './Components/Navbar';
 import Card from './Components/Card';
 import Detalle from './Components/Detalles';
 
-useEffect(() => {
-  fetch('https://aves.ninjas.cl/api/birds') 
-  .then ((resp) => resp.json())
-  .then ((datos) => {
-    console.log(datos)
-  })
-}, [])
 
 function App() {
+
+  const [birds, setBirds] = useState([])
+
+  useEffect(() => {
+    fetch('https://aves.ninjas.cl/api/birds')
+      .then((resp) => resp.json())
+      .then(datos =>
+        setBirds(datos))
+  }, [])
+
+  console.log(birds[0])
+
   return (
     <>
-    <Navbar/>
-    <Card/>
-    <Detalle/>
-   
-     
+      <Navbar />
+      {birds.map( info => (<Card 
+      uid={info.uid}/>
+
+      ))}
+      <Detalle />
     </>
   );
 }
