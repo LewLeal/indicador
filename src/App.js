@@ -4,7 +4,11 @@ import 'jquery'; import 'popper.js'; import 'bootstrap';
 import Navbar from './Components/Navbar';
 import Card from './Components/Card';
 import Detalle from './Components/Detalles';
-
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
 function App() {
 
@@ -22,8 +26,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <br></br>
-      <br></br>
+      <h3 className="display-4 text-danger p-2 mx-auto">Birds</h3>
       <div className="row">
       {birds.map( info => (<Card 
       uid={info.uid} 
