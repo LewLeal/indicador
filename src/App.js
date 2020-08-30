@@ -23,6 +23,7 @@ function App() {
     <>
       <Navbar />
       <br></br>
+      <br></br>
       <div className="row">
       {birds.map( info => (<Card 
       uid={info.uid} 
