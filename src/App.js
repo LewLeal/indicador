@@ -22,10 +22,16 @@ function App() {
   return (
     <>
       <Navbar />
+      <br></br>
+      <br></br>
+      <div className="row">
       {birds.map( info => (<Card 
-      uid={info.uid}/>
+      uid={info.uid} 
+      image={info.images.main}
+      description={info.name.spanish}/>
 
       ))}
+      </div>
       <Detalle />
     </>
   );
