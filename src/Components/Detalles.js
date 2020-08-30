@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Detalle = () => {
+const Detalles = () => {
     return (
         <div className="card mb-3">
             <img src="..." className="card-img-top" alt="..." />
@@ -14,4 +14,4 @@ const Detalle = () => {
     );
 }
 
-export default Detalle;
+export default Detalles;
