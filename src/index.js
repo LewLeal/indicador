@@ -1,11 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import Detalles from './Components/Detalles';
 import * as serviceWorker from './serviceWorker';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+        <Switch>
+          <Route path="/" component={App} exact>
+          </Route>
+          <Route path="/detalles/bird/:uid" component={Detalles} exact>
+          </Route>
+          <Route path="*" render={() => <h2>Not Found</h2>}>
+          </Route>
+        </Switch>
+      </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );

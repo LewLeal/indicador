@@ -1,14 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-const Detalles = () => {
+const Detalles = (props) => {
+
+    let { uid } = useParams();
+    let apidetail = 'https://aves.ninjas.cl/api/birds/';
+
+    const [birdsdetail, setBirdsdetail] = useState([])
+
+    useEffect(() => {
+        fetch(apidetail + uid)
+            .then((resp) => resp.json())
+            .then(datos =>
+                setBirdsdetail(datos))
+    }, [])
+    console.log(birdsdetail);
+    console.log(apidetail + uid);
+
     return (
         <div className="card mb-3">
-            <img src="..." className="card-img-top" alt="..." />
+            <img src={props.image} className="card-img-top" />
             <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small>
-                </p>
+                <h3 className="card-title">{birdsdetail.uid}</h3>
+                <h4 className="card-title">Nombre:</h4>
+                <h5 className="card-title">Categoria:</h5>
+                <p className="card-text"></p>
+                <h5 className="card-title">Habitat:</h5>
+                <p className="card-text">{birdsdetail.habitat}</p>
+                <h5 className="card-title">¿Sabias que?</h5>
+                <p className="card-text">{birdsdetail.didyouknow}</p>
             </div>
         </div>
     );

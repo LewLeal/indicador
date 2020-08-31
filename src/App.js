@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'jquery'; import 'popper.js'; import 'bootstrap';
 import Navbar from './Components/Navbar';
 import Card from './Components/Card';
-import Detalle from './Components/Detalles';
+import Detalles from './Components/Detalles';
 import {
   BrowserRouter as Router,
   Switch,
@@ -28,14 +28,15 @@ function App() {
       <Navbar />
       <h3 className="display-4 text-danger p-2 mx-auto">Birds</h3>
       <div className="row">
-      {birds.map( info => (<Card 
-      uid={info.uid} 
-      image={info.images.main}
-      description={info.name.spanish}/>
+        {birds.map((info, index) => (<Card
+          uid={info.uid}
+          image={info.images.main}
+          description={info.name.spanish}
+          index={info.sort} />
 
-      ))}
+        ))}
       </div>
-      <Detalle />
+
     </>
   );
 }
