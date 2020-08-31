@@ -17,9 +17,7 @@ const Card = (props) => {
             <div className="card-body">
                 <h5 className="card-title">{props.uid}</h5>
                 <p className="card-text">{props.description}</p>
-                <Router>
-                    <Link to={to+props.uid} className="btn btn-primary">Learn More!</Link>
-                </Router>
+                <Link to={to+props.uid} className="btn btn-primary">Learn More!</Link>
             </div>
         </div>
     );
