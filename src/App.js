@@ -4,7 +4,11 @@ import 'jquery'; import 'popper.js'; import 'bootstrap';
 import Navbar from './Components/Navbar';
 import Card from './Components/Card';
 import Detalle from './Components/Detalles';
-
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
 
 function App() {
@@ -20,7 +24,15 @@ function App() {
   return (
     <>
       <Navbar />
-      <Card />
+      <h3 className="display-4 text-danger p-2 mx-auto">Birds</h3>
+      <div className="row">
+      {birds.map( info => (<Card 
+      uid={info.uid} 
+      image={info.images.main}
+      description={info.name.spanish}/>
+
+      ))}
+      </div>
       <Detalle />
 
 
