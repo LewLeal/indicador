@@ -13,6 +13,7 @@ const Card = (props) => {
     const { store, actions } = useContext(Context);
     const [state, setState] = useState([]); 
     console.log(store);
+
     const handleAdd = (uid) => {
         console.log(uid);
         setState([
@@ -21,7 +22,16 @@ const Card = (props) => {
         ])
         uid = '';
     }
-    console.log("Abajo muestro el arreglo");
+
+    /**Duplico función handleAdd **/
+    const handleAddStore = (favorito) => {
+        console.log(favorito);
+        actions([
+            ...store,
+            favorito
+        ])
+        favorito = '';
+    }
     console.log(state);
 
     return (
@@ -32,8 +42,7 @@ const Card = (props) => {
                 <h5 className="card-title">{props.uid}</h5>
                 <p className="card-text">{props.description}</p>
                 <Link to={to+props.uid} className="btn btn-primary">Learn More!</Link>
-                <button type="button" onClick={() => handleAdd(props)} class="btn btn-outline-dark">♥</button>
-                <button type="button" onClick={(e) => {e.preventDefault(); handleAdd(props.uid)}} class="btn btn-outline-dark">♥ 2</button>
+                <button type="button" onClick={() => handleAdd(props)} className="btn btn-outline-dark ml-auto">♥</button>
             </div>
         </div>
     );
