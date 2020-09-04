@@ -21,8 +21,6 @@ function App() {
         setBirds(datos))
   }, [])
 
-  console.log(birds[0])
-
   return (
     <>
       <Navbar />

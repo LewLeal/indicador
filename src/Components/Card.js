@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import Detalles from './Detalles';
-import { Context } from '../store/appContext'
+import { Context } from '../store/appContext';
 import {
     BrowserRouter as Router,
     Switch,
@@ -11,17 +11,6 @@ import {
 const Card = (props) => {
     let to="/detalles/bird/";
     const { store, actions } = useContext(Context);
-    const [state, setState] = useState([]); 
-    console.log(store);
-
-    const handleAdd = (uid) => {
-        console.log(uid);
-        setState([
-            ...state,
-           uid
-        ])
-        uid = '';
-    }
 
     return (
 

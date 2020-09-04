@@ -17,7 +17,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 				});
 				console.log("Hola desde Flux.js");
 				console.log(mystore);
+			},
+
+			handleDelete: (index) => {
+				const mystore = getStore();
+				mystore.favorito.splice(index,1);
+				setStore({
+					...mystore,
+					favorito:[...mystore.favorito]
+				});
+
 			}
+
+			
 		}
 	};
 };

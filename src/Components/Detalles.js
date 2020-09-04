@@ -15,9 +15,7 @@ const Detalles = (props) => {
             .then(datos =>
                 setBirdsdetail(datos))
     }, [])
-    console.log(birdsdetail);
-    console.log(apidetail + uid);
-
+    
     return (
         <div className="card mb-3">
             <img src={props.image} className="card-img-top" />
