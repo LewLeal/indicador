@@ -15,6 +15,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					...mystore,
 					favorito:[...mystore.favorito,ave]
 				});
+				console.log("Hola desde Flux.js");
+				console.log(mystore);
 			}
 		}
 	};

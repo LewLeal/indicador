@@ -23,17 +23,6 @@ const Card = (props) => {
         uid = '';
     }
 
-    /**Duplico función handleAdd **/
-    const handleAddStore = (favorito) => {
-        console.log(favorito);
-        actions([
-            ...store,
-            favorito
-        ])
-        favorito = '';
-    }
-    console.log(state);
-
     return (
 
         <div className="col-3 card">
@@ -42,7 +31,7 @@ const Card = (props) => {
                 <h5 className="card-title">{props.uid}</h5>
                 <p className="card-text">{props.description}</p>
                 <Link to={to+props.uid} className="btn btn-primary">Learn More!</Link>
-                <button type="button" onClick={() => handleAdd(props)} className="btn btn-outline-dark ml-auto">♥</button>
+                <button type="button" onClick={() => actions.handleAddFavorito(props)} className="btn btn-outline-dark ml-auto">♥</button>
             </div>
         </div>
     );
